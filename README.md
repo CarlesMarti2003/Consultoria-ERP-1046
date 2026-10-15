@@ -20,6 +20,7 @@ npm run preview
 
 ## On editar els continguts
 
+- `src/index.html`: entrada de l'aplicació per al desenvolupament.
 - `src/App.jsx`: textos, apartats i navegació.
 - `src/content.js`: membres de l'equip, departaments i passos del procés.
 - `src/styles.css`: colors i estils generals de Tailwind.
@@ -29,8 +30,13 @@ L'apartat **Qui som** ja té una fitxa per a cada membre. Quan tingueu la inform
 
 ## Publicació en GitHub Pages
 
-El projecte inclou un flux de GitHub Actions preparat per publicar la carpeta `dist` quan es pugen canvis a `main`. En la configuració del repositori, a **Settings → Pages → Build and deployment**, seleccioneu **GitHub Actions**. L'adreça prevista és:
+GitHub Pages publica la carpeta principal de la branca `main`. Per generar els fitxers que serveix:
 
-`https://carlesmarti2003.github.io/Consultoria-ERP-1046/`
+```bash
+npm run export
+git add -A
+git commit -m "Actualitza la web"
+git push origin main
+```
 
-La ruta base de Vite ja està configurada per a aquest repositori. Comproveu l'adreça pública després del desplegament.
+`npm run export` compila l'aplicació i copia `index.html`, `assets/` i `images/` a la carpeta principal. Editeu sempre els fitxers de `src/` i `public/`; els de la carpeta principal es tornen a generar amb l'exportació. L'adreça pública és [carlesmarti2003.github.io/Consultoria-ERP-1046](https://carlesmarti2003.github.io/Consultoria-ERP-1046/).
