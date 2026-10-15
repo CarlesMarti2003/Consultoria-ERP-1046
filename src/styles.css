@@ -9,12 +9,12 @@
 
 @theme {
   --font-sans: "IBM Plex Sans", Arial, sans-serif;
-  --color-paper: #eceeea;
-  --color-cream: #f7f8f5;
-  --color-ink: #22312e;
-  --color-muted: #53625d;
-  --color-clay: #995238;
-  --color-line: #cbd2cc;
+  --color-paper: #f2ede8;
+  --color-cream: #fcfaf7;
+  --color-ink: #25211e;
+  --color-muted: #665e57;
+  --color-clay: #a74f32;
+  --color-line: #ded5cc;
 }
 
 :root { font-synthesis: none; }
@@ -23,7 +23,7 @@ body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-
 button { cursor: pointer; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--color-clay); outline-offset: 4px; }
-::selection { background: #b8c7bd; color: var(--color-ink); }
+::selection { background: #e9b9a6; color: var(--color-ink); }
 h1, h2, h3, h4 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; }
 
 .page-shell { width: min(100% - 2.5rem, 78rem); margin-inline: auto; }
@@ -31,28 +31,28 @@ h1, h2, h3, h4 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; }
 .section-title { font-size: clamp(2.9rem, 5vw, 4.7rem); font-weight: 600; line-height: .99; letter-spacing: -.018em; }
 .section-lead { max-width: 44rem; margin-top: 1.5rem; color: var(--color-muted); font-size: 1.12rem; line-height: 1.7; }
 
-.site-header { position: relative; z-index: 30; border-bottom: 1px solid var(--color-line); background: var(--color-cream); }
+.site-header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--color-line); background: var(--color-cream); }
 .site-header .brand-link img { display: block; width: 8.7rem; height: auto; }
 .desktop-nav { display: flex; align-items: center; gap: clamp(1.2rem, 3vw, 2.8rem); }
 .desktop-nav a, .mobile-nav a { color: var(--color-muted); font-size: .95rem; font-weight: 600; text-decoration: none; }
 .desktop-nav a { display: inline-block; border-bottom: 2px solid transparent; padding: .9rem 0; }
 .desktop-nav a:hover, .desktop-nav a[aria-current="page"], .mobile-nav a:hover, .mobile-nav a[aria-current="page"] { color: var(--color-ink); }
 .desktop-nav a[aria-current="page"] { border-color: var(--color-clay); }
-.menu-toggle { display: none; min-height: 2.75rem; border-bottom: 1px solid var(--color-ink); color: var(--color-ink); font-size: .95rem; font-weight: 600; }
+.menu-toggle { display: none; min-height: 2.75rem; border-bottom: 1px solid var(--color-clay); color: var(--color-ink); font-size: .95rem; font-weight: 600; }
 .mobile-nav { display: none; }
 .skip-link { position: absolute; top: -10rem; left: 1rem; z-index: 50; background: var(--color-ink); padding: .7rem 1rem; color: white; }
 .skip-link:focus { top: .7rem; }
 
-.home-hero { background: #dce2dc; }
+.home-hero { background: #e9ddd3; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.07fr); min-height: 37rem; }
 .hero-copy { align-self: center; padding: 4.4rem 3.5rem 5rem 0; }
 .hero-copy h1 { max-width: 12ch; font-size: clamp(3.5rem, 6.1vw, 6.5rem); font-weight: 600; line-height: .9; letter-spacing: -.025em; text-wrap: balance; }
-.hero-lead { max-width: 34rem; margin-top: 2rem; color: #3f504a; font-size: 1.13rem; line-height: 1.65; }
-.primary-link { display: inline-flex; align-items: center; gap: 2.5rem; margin-top: 2rem; background: var(--color-ink); padding: .95rem 1.2rem; color: white; font-weight: 600; text-decoration: none; }
-.primary-link:hover { background: var(--color-clay); }
+.hero-lead { max-width: 34rem; margin-top: 2rem; color: var(--color-muted); font-size: 1.13rem; line-height: 1.65; }
+.primary-link { display: inline-flex; align-items: center; gap: 2.5rem; margin-top: 2rem; background: var(--color-clay); padding: .95rem 1.2rem; color: white; font-weight: 600; text-decoration: none; }
+.primary-link:hover { background: #873e28; }
 .hero-visual { position: relative; min-width: 0; margin: 0; }
 .hero-visual img { width: 100%; height: 100%; min-height: 37rem; object-fit: cover; object-position: 61% center; }
-.hero-visual figcaption { position: absolute; right: 1rem; bottom: 1rem; background: rgba(34, 49, 46, .9); padding: .45rem .65rem; color: white; font-size: .77rem; }
+.hero-visual figcaption { position: absolute; right: 1rem; bottom: 1rem; background: rgba(37, 33, 30, .9); padding: .45rem .65rem; color: white; font-size: .77rem; }
 
 .home-brief { padding: 6rem 0 6.5rem; background: var(--color-cream); }
 .brief-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 5rem; align-items: start; }
@@ -93,7 +93,6 @@ h1, h2, h3, h4 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; }
 .sources-list a span { color: var(--color-clay); font-family: var(--font-sans); font-size: 1rem; }
 
 .site-footer { border-top: 1px solid var(--color-line); background: var(--color-paper); padding: 3rem 0; }
-.site-footer nav a:hover { color: var(--color-clay); }
 
 @media (max-width: 900px) {
   .desktop-nav { gap: 1rem; }
@@ -103,14 +102,17 @@ h1, h2, h3, h4 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; }
   .brief-grid, .sequence-block { gap: 2.5rem; }
 }
 
+@media (max-width: 850px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: block; }
+  .mobile-nav { position: absolute; top: 100%; right: 0; left: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); background: var(--color-cream); padding: .4rem 1rem .8rem; box-shadow: 0 12px 20px rgb(37 33 30 / 8%); }
+  .mobile-nav a { border-bottom: 1px solid var(--color-line); padding: .85rem .2rem; }
+  .mobile-nav a[aria-current="page"] { border-left: 3px solid var(--color-clay); padding-left: .7rem; }
+}
+
 @media (max-width: 680px) {
   .page-shell { width: min(100% - 2rem, 78rem); }
   .site-header .brand-link img { width: 7.6rem; }
-  .desktop-nav { display: none; }
-  .menu-toggle { display: block; }
-  .mobile-nav { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--color-line); background: var(--color-cream); padding: .4rem 1rem .8rem; }
-  .mobile-nav a { border-bottom: 1px solid var(--color-line); padding: .85rem .2rem; }
-  .mobile-nav a[aria-current="page"] { border-left: 3px solid var(--color-clay); padding-left: .7rem; }
   .hero-grid { display: flex; flex-direction: column; }
   .hero-copy { padding: 3.5rem 0 3rem; }
   .hero-copy h1 { max-width: 11ch; font-size: clamp(3.55rem, 13vw, 5.3rem); }

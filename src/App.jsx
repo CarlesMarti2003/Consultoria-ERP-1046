@@ -33,11 +33,19 @@ function SectionHeading({ eyebrow, title, children, as: Heading = 'h2' }) {
 function Header({ page }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  useEffect(() => {
+    const closeMenuOnDesktop = () => {
+      if (window.innerWidth > 850) setMenuOpen(false)
+    }
+    window.addEventListener('resize', closeMenuOnDesktop)
+    return () => window.removeEventListener('resize', closeMenuOnDesktop)
+  }, [])
+
   return (
     <header className="site-header">
       <button type="button" onClick={() => document.getElementById('main-content')?.focus()} className="skip-link">Saltar al contingut</button>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 sm:px-8 lg:px-12">
-        <a href="#/" aria-label="Nexe Consultoria ERP, tornar a l'inici" className="shrink-0">
+        <a href="#/" aria-label="Nexe Consultoria ERP, tornar a l'inici" className="brand-link shrink-0">
           <img src={asset('nexe-logo.svg')} alt="Nexe Consultoria ERP" className="h-12 w-auto sm:h-14" />
         </a>
         <nav aria-label="Navegació principal" className="desktop-nav">
@@ -293,11 +301,8 @@ function Sources() {
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-5 sm:px-8 lg:flex-row lg:items-end lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div><img src={asset('nexe-logo.svg')} alt="Nexe Consultoria ERP" className="h-14 w-auto" /><p className="mt-4 max-w-sm text-sm leading-6 text-muted">Consultoria de processos i selecció d’ERP.</p></div>
-        <nav aria-label="Navegació del peu de pàgina" className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-muted">
-          {navigation.map((item) => <a key={item.href} href={item.href} className="hover:text-clay">{item.label}</a>)}
-        </nav>
       </div>
     </footer>
   )
