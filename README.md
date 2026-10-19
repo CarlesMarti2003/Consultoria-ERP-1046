@@ -1,6 +1,6 @@
 # Nexe Consultoria ERP · Ceràmica Riu Sec
 
-Web de Nexe Consultoria ERP sobre Ceràmica Riu Sec i el procés d'aprovisionament de matèries primeres. Està organitzada en quatre apartats: inici, empresa, procés i consultora.
+Web de Nexe Consultoria ERP sobre Ceràmica Riu Sec i el procés d'aprovisionament de matèries primeres. Està organitzada en cinc apartats: inici, empresa, procés, consultora i contacte.
 
 ## Obrir el projecte
 

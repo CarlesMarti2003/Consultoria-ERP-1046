@@ -8,10 +8,10 @@ const navigation = [
   { label: 'Empresa', href: '#/empresa', page: 'empresa' },
   { label: 'Procés', href: '#/proces', page: 'proces' },
   { label: 'Consultora', href: '#/consultora', page: 'consultora' },
+  { label: 'Contacte', href: '#/contacte', page: 'contacte' },
 ]
 
 const footerNavigation = [
-  { label: 'Contacte', href: '#/contacte' },
   { label: 'Privacitat', href: '#/privacitat' },
   { label: 'Cookies', href: '#/cookies' },
 ]
@@ -54,7 +54,6 @@ const services = [
 
 function pageFromHash() {
   const path = window.location.hash
-  if (path === '#/contacte') return 'contacte'
   if (path === '#/privacitat') return 'privacitat'
   if (path === '#/cookies') return 'cookies'
   return navigation.find((item) => item.href === path)?.page || 'inici'
