@@ -11,12 +11,21 @@ const navigation = [
   { label: 'Fonts', href: '#/fonts', page: 'fonts' },
 ]
 
+const footerNavigation = [
+  { label: 'Contacte', href: '#/contacte' },
+  { label: 'Privacitat', href: '#/privacitat' },
+  { label: 'Cookies', href: '#/cookies' },
+]
+
 const titles = {
   inici: 'Inici',
   empresa: 'Empresa',
   proces: 'Procés',
   consultora: 'Consultora',
   fonts: 'Fonts',
+  contacte: 'Contacte',
+  privacitat: 'Privacitat',
+  cookies: 'Cookies',
 }
 
 const handoffs = [
@@ -53,7 +62,11 @@ const sources = [
 ]
 
 function pageFromHash() {
-  return navigation.find((item) => item.href === window.location.hash)?.page || 'inici'
+  const path = window.location.hash
+  if (path === '#/contacte') return 'contacte'
+  if (path === '#/privacitat') return 'privacitat'
+  if (path === '#/cookies') return 'cookies'
+  return navigation.find((item) => item.href === path)?.page || 'inici'
 }
 
 function Header({ page }) {
@@ -265,13 +278,21 @@ function Process() {
         </div>
       </section>
       <section className="section-space">
-        <div className="wrap process-layout">
-          <div className="process-aside"><h2>Les activitats actuals</h2><p>Obri cada pas per veure qui hi intervé, quina informació utilitza i on apareix el problema.</p></div>
-          <ol className="process-list">
-            {steps.map((step, index) => (
-              <ProcessStep key={step.title} step={step} index={index} open={openStep === index} onToggle={() => setOpenStep((current) => current === index ? null : index)} />
+        <div className="wrap">
+          <div className="section-heading-row process-heading">
+            <h2>Les activitats actuals</h2>
+            <p>Obri cada pas per veure qui hi intervé, quina informació utilitza i on apareix el problema.</p>
+          </div>
+          <div className="process-columns">
+            {[0, 4].map((start) => (
+              <ol className="process-list" start={start + 1} key={start}>
+                {steps.slice(start, start + 4).map((step, offset) => {
+                  const index = start + offset
+                  return <ProcessStep key={step.title} step={step} index={index} open={openStep === index} onToggle={() => setOpenStep((current) => current === index ? null : index)} />
+                })}
+              </ol>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
       <section className="concerns section-space">
@@ -363,12 +384,82 @@ function Sources() {
   )
 }
 
-function Footer() {
+function Contact() {
+  return (
+    <>
+      <PageIntro label="Contacte" title="Parlem del projecte">
+        Pots preparar el teu missatge ací. El formulari encara no està connectat a cap servei d’enviament.
+      </PageIntro>
+      <section className="section-space info-section">
+        <div className="wrap info-layout">
+          <div><h2>Escriu-nos</h2><p>Quan activem el contacte, aquest espai permetrà enviar consultes a l’equip de Nexe.</p></div>
+          <form className="contact-form" aria-describedby="contact-status">
+            <label htmlFor="contact-name">Nom</label>
+            <input id="contact-name" name="name" type="text" autoComplete="name" disabled />
+            <label htmlFor="contact-email">Correu electrònic</label>
+            <input id="contact-email" name="email" type="email" autoComplete="email" disabled />
+            <label htmlFor="contact-message">Missatge</label>
+            <textarea id="contact-message" name="message" rows="6" disabled />
+            <button type="button" disabled>Enviar missatge</button>
+            <p id="contact-status">Formulari en preparació. No es poden enviar missatges des d’aquesta pàgina.</p>
+          </form>
+        </div>
+      </section>
+    </>
+  )
+}
+
+function Privacy() {
+  return (
+    <>
+      <PageIntro label="Privacitat" title="Informació de privacitat">
+        Com presentem la informació de l’equip i què passa quan visites aquesta web.
+      </PageIntro>
+      <section className="section-space info-section">
+        <div className="wrap info-layout">
+          <h2>Dades a la web</h2>
+          <div className="info-copy">
+            <p>La web publica els noms i els estudis dels membres de Nexe per presentar l’equip del projecte.</p>
+            <p>El formulari de contacte està desactivat. Ara mateix no pots enviar-hi dades ni missatges a través de la pàgina. No hem incorporat eines pròpies d’analítica ni de publicitat.</p>
+            <p>La web s’allotja a GitHub Pages. GitHub pot tractar dades tècniques de navegació d’acord amb la seua <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noreferrer">declaració de privacitat</a>.</p>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+function Cookies() {
+  return (
+    <>
+      <PageIntro label="Cookies" title="Ús de cookies">
+        Informació sobre les tecnologies que utilitza actualment aquesta web.
+      </PageIntro>
+      <section className="section-space info-section">
+        <div className="wrap info-layout">
+          <h2>Estat actual</h2>
+          <div className="info-copy">
+            <p>Nexe no ha afegit cookies pròpies, eines d’analítica ni anuncis a aquesta web. Les pàgines, les imatges i les tipografies es carreguen des del mateix lloc.</p>
+            <p>El lloc està publicat amb GitHub Pages. Consulta la <a href="https://docs.github.com/en/site-policy/privacy-policies/github-cookies" target="_blank" rel="noreferrer">informació de GitHub sobre cookies</a> per conéixer les tecnologies que pot utilitzar el proveïdor.</p>
+            <p>Si en el futur afegim serveis que requerisquen cookies opcionals, actualitzarem aquesta informació abans d’activar-los.</p>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+function Footer({ page }) {
   return (
     <footer className="site-footer">
       <div className="wrap footer-inner">
-        <img src={asset('nexe-logo.svg')} alt="Nexe Consultoria ERP" width="1200" height="420" />
-        <p>Consultoria de processos i selecció d’ERP.</p>
+        <div className="footer-meta">
+          <strong>Nexe Consultoria ERP</strong>
+          <p>© {new Date().getFullYear()} Nexe. Tots els drets reservats.</p>
+        </div>
+        <nav aria-label="Enllaços del peu de pàgina" className="footer-links">
+          {footerNavigation.map((item) => <a key={item.href} href={item.href} aria-current={page === item.href.slice(2) ? 'page' : undefined} onClick={() => { if (page === item.href.slice(2)) window.scrollTo(0, 0) }}>{item.label}</a>)}
+        </nav>
       </div>
     </footer>
   )
@@ -397,8 +488,11 @@ export default function App() {
         {page === 'proces' && <Process />}
         {page === 'consultora' && <Consultancy />}
         {page === 'fonts' && <Sources />}
+        {page === 'contacte' && <Contact />}
+        {page === 'privacitat' && <Privacy />}
+        {page === 'cookies' && <Cookies />}
       </main>
-      <Footer />
+      <Footer page={page} />
     </>
   )
 }
