@@ -26,6 +26,10 @@ const titles = {
   cookies: 'Cookies',
 }
 
+const cvHref = (url) => /^https?:\/\//i.test(url)
+  ? url
+  : import.meta.env.BASE_URL + url.replace(/^\/+/, '')
+
 const handoffs = [
   { team: 'Producció', action: 'Comunica els materials necessaris' },
   { team: 'Magatzem', action: 'Contrasta les existències' },
@@ -138,6 +142,18 @@ function Home() {
           <figcaption>Planta de producció ceràmica · imatge il·lustrativa</figcaption>
         </figure>
       </section>
+      <section className="case-overview section-space">
+        <div className="wrap split-section">
+          <div>
+            <p className="page-label">Cas pràctic simulat</p>
+            <h2>Quin és el cas?</h2>
+          </div>
+          <div className="body-copy">
+            <p>Ceràmica Riu Sec és l’empresa fictícia d’aquest projecte. Les seues àrees treballen amb informació separada i de vegades detecten massa tard que falta material per a fabricar.</p>
+            <p>Nexe analitza com funciona ara l’aprovisionament i quines necessitats hauria de cobrir un ERP. La millora que es busca és compartir dades fiables entre producció, compres i magatzem. Encara no s’ha triat ni implantat cap solució, de manera que no presentem resultats obtinguts.</p>
+          </div>
+        </div>
+      </section>
       <section className="section-space">
         <div className="wrap">
           <div className="section-heading-row">
@@ -181,7 +197,8 @@ function Company() {
         <div className="wrap split-section">
           <h2>El context</h2>
           <div className="body-copy">
-            <p>La companyia va començar centrada en la fabricació de taulells. En créixer el nombre de clients i comandes, coordinar producció, magatzem i compres amb fitxers separats s’ha tornat més difícil.</p>
+            <p>Per a aquest cas plantegem que Ceràmica Riu Sec va començar a Onda com una fàbrica de taulells amb un equip més menut. A mesura que van augmentar les comandes de distribuïdors i empreses de construcció, va ampliar la producció i el magatzem fins a arribar a les {workforce} persones actuals.</p>
+            <p>Hui treballa amb una planta de producció i un magatzem propi. Els registres d’estoc, les peticions de materials i les compres continuen repartits entre fulls de càlcul i correus, cosa que complica la coordinació quan canvia el pla de fabricació.</p>
             <p>La seua estratègia és fabricar segons la demanda prevista, disposar dels materials a temps i evitar tant les aturades com l’excés d’estoc.</p>
           </div>
         </div>
@@ -304,7 +321,7 @@ function Consultancy() {
   return (
     <>
       <PageIntro label="Consultora" title="Nexe Consultoria ERP">
-        Som quatre estudiants d’Enginyeria Informàtica i Matemàtica Computacional. Aportem formació en sistemes d’informació i anàlisi de dades per estudiar els processos de Ceràmica Riu Sec i els requisits d’una solució ERP.
+        Som quatre estudiants d’Enginyeria Informàtica i Matemàtica Computacional. Estudiem com treballa l’empresa, identifiquem on es perd informació i definim què hauria de resoldre una solució ERP.
       </PageIntro>
       <section className="section-space">
         <div className="wrap split-section">
@@ -328,7 +345,7 @@ function Consultancy() {
         <div className="wrap">
           <div className="section-heading-row">
             <h2>Qui som</h2>
-            <p>Formem l’equip de Nexe i desenvolupem el cas de consultoria sobre l’aprovisionament de Ceràmica Riu Sec.</p>
+            <p>Ens repartim l’anàlisi del procés, els sistemes, els requisits i les dades per estudiar l’aprovisionament de Ceràmica Riu Sec.</p>
           </div>
           <ul className="team-list">
             {team.map((person) => (
@@ -336,10 +353,10 @@ function Consultancy() {
                 <h3>{person.name}</h3>
                 <dl>
                   <div><dt>Formació</dt><dd>{person.studies}</dd></div>
-                  <div><dt>Projecte</dt><dd>Anàlisi del procés d’aprovisionament i estudi d’una solució ERP per a Ceràmica Riu Sec.</dd></div>
+                  <div><dt>En el projecte</dt><dd>{person.responsibility}</dd></div>
                 </dl>
                 {person.cvUrl
-                  ? <a className="text-link" href={import.meta.env.BASE_URL + person.cvUrl} target="_blank" rel="noreferrer">Veure el CV <span aria-hidden="true">↗</span></a>
+                  ? <a className="text-link" href={cvHref(person.cvUrl)} target="_blank" rel="noopener noreferrer">Veure el CV <span aria-hidden="true">↗</span></a>
                   : <p className="cv-status">CV pendent d’incorporar</p>}
               </li>
             ))}

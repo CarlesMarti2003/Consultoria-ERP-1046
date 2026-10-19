@@ -1,6 +1,6 @@
 # Nexe Consultoria ERP · Ceràmica Riu Sec
 
-Web de Nexe Consultoria ERP sobre Ceràmica Riu Sec i el procés d'aprovisionament de matèries primeres. Està organitzada en cinc apartats: inici, empresa, procés, consultora i contacte.
+Web de Nexe Consultoria ERP sobre Ceràmica Riu Sec i el procés d'aprovisionament de matèries primeres. És un cas pràctic simulat i està organitzada en cinc apartats: inici, empresa, procés, consultora i contacte.
 
 ## Obrir el projecte
 
@@ -26,7 +26,9 @@ npm run preview
 - `src/styles.css`: colors i estils generals de Tailwind.
 - `public/images/`: logotip de Nexe i imatge il·lustrativa.
 
-L'apartat **Qui som** mostra la formació confirmada de cada membre i el projecte compartit. Cada perfil indica on anirà el seu CV. Per afegir els CV complets, guardeu un PDF per persona dins de `public/cv/` i poseu la ruta corresponent en `cvUrl` de `src/content.js`; per exemple, `cvUrl: 'cv/hector-balaguer.pdf'`. En publicar la web, el text «CV pendent d’incorporar» es convertirà en l'enllaç «Veure el CV». Reviseu que els PDF no publiquen dades personals que no vulgueu compartir.
+L'apartat **Qui som** mostra la formació confirmada de cada membre i un repartiment proposat de responsabilitats per al cas. Confirmeu aquestes funcions amb l'equip abans del lliurament. Els CV encara no s'han facilitat; no s'han inventat experiències ni competències personals.
+
+Per incorporar-los, la via més senzilla és guardar **un PDF per membre** dins de `public/cv/` i indicar-ne la ruta a `cvUrl` de `src/content.js`, per exemple `cvUrl: 'cv/hector-balaguer.pdf'`. També es pot posar un **enllaç públic complet** a un PDF allotjat fora de la web, per exemple `cvUrl: 'https://exemple.org/cv/hector-balaguer.pdf'`. Cal comprovar que el PDF s'obri sense iniciar sessió. En publicar la web, «CV pendent d’incorporar» es convertirà en «Veure el CV». Reviseu abans de publicar-los que no hi haja dades personals que no vulgueu fer públiques (adreça, telèfon, document d'identitat, etc.).
 
 ## Publicació en GitHub Pages
 

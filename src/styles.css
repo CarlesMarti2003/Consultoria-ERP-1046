@@ -56,6 +56,8 @@ p, h1, h2, h3, h4, figure { margin: 0; }
 .factory-image { position: relative; }
 .factory-image img { display: block; width: 100%; height: clamp(19rem, 38vw, 30rem); object-fit: cover; object-position: center 53%; }
 .factory-image figcaption { padding: .8rem 0 1rem; color: var(--color-muted); font-size: .78rem; }
+.case-overview { border-bottom: 1px solid var(--color-line); background: var(--color-panel); }
+.case-overview .page-label { margin-bottom: .85rem; }
 
 .section-heading-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, .65fr); gap: 3rem; align-items: baseline; padding-bottom: 2.1rem; }
 .section-heading-row h2 { max-width: 18ch; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 600; line-height: 1.14; letter-spacing: -.035em; }
