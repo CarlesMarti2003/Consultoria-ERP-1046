@@ -9,9 +9,11 @@ if (!existsSync(join(dist, 'index.html'))) {
   throw new Error('Primer cal compilar la web amb npm run build.')
 }
 
-for (const directory of ['assets', 'images']) {
+for (const directory of ['assets', 'images', 'cv']) {
   rmSync(join(root, directory), { recursive: true, force: true })
-  cpSync(join(dist, directory), join(root, directory), { recursive: true })
+  if (existsSync(join(dist, directory))) {
+    cpSync(join(dist, directory), join(root, directory), { recursive: true })
+  }
 }
 
 copyFileSync(join(dist, 'index.html'), join(root, 'index.html'))

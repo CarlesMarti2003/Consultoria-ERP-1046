@@ -1,9 +1,9 @@
-// Completeu aquests camps quan cada membre confirme la seua informació.
+// Afegiu cvUrl quan cada membre facilite el seu currículum en PDF.
 export const team = [
-  { name: 'Héctor Balaguer Romero', studies: '', specialty: '', cvUrl: '' },
-  { name: 'Carles Martí Corredor', studies: '', specialty: '', cvUrl: '' },
-  { name: 'Domingo Zurera González', studies: '', specialty: '', cvUrl: '' },
-  { name: 'Pau Mollar Belis', studies: '', specialty: '', cvUrl: '' },
+  { name: 'Héctor Balaguer Romero', studies: 'Grau en Enginyeria Informàtica (en curs)', cvUrl: '' },
+  { name: 'Carles Martí Corredor', studies: 'Grau en Enginyeria Informàtica (en curs)', cvUrl: '' },
+  { name: 'Domingo Zurera González', studies: 'Grau en Enginyeria Informàtica (en curs)', cvUrl: '' },
+  { name: 'Pau Mollar Belis', studies: 'Grau en Matemàtica Computacional (en curs)', cvUrl: '' },
 ]
 
 export const departments = [

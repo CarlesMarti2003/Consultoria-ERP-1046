@@ -166,10 +166,13 @@ function Home() {
 }
 
 function Company() {
+  const workforce = departments.reduce((total, department) => total + department.people, 0)
+  const [management, ...areas] = departments
+
   return (
     <>
       <PageIntro label="Empresa" title="Ceràmica Riu Sec">
-        Una fàbrica de taulells d’Onda amb una planta de producció i un magatzem propi. Fabrica per a distribuïdors i empreses de construcció.
+        Una fàbrica de taulells d’Onda amb una planta de producció, un magatzem propi i unes {workforce} persones. Fabrica per a distribuïdors i empreses de construcció.
       </PageIntro>
       <section className="section-space company-overview">
         <div className="wrap split-section">
@@ -188,16 +191,24 @@ function Company() {
         <div className="wrap">
           <div className="section-heading-row">
             <h2>Com s’organitza</h2>
-            <p>Producció, magatzem, compres i qualitat intervenen directament en l’aprovisionament.</p>
+            <p>Unes {workforce} persones repartides en set àrees. Producció, magatzem, compres i qualitat intervenen directament en l’aprovisionament.</p>
           </div>
-          <div className="department-table" role="list" aria-label="Departaments de Ceràmica Riu Sec">
-            {departments.map((department) => (
-              <div className="department-item" role="listitem" key={department.name}>
-                <h3>{department.name}</h3>
-                <p>{department.task}</p>
-                <span>{department.people} persones</span>
-              </div>
-            ))}
+          <div className="org-chart" aria-label="Estructura de Ceràmica Riu Sec">
+            <div className="org-management">
+              <h3>{management.name}</h3>
+              <p>{management.task}</p>
+              <span>{management.people} persones</span>
+            </div>
+            <p className="org-level-label">Departaments</p>
+            <ul className="org-areas">
+              {areas.map((department) => (
+                <li key={department.name}>
+                  <h3>{department.name}</h3>
+                  <p>{department.task}</p>
+                  <span>{department.people} persones</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -282,7 +293,7 @@ function Consultancy() {
   return (
     <>
       <PageIntro label="Consultora" title="Nexe Consultoria ERP">
-        Analitzem els processos de Ceràmica Riu Sec i els requisits que hauria de complir una solució ERP.
+        Som quatre estudiants d’Enginyeria Informàtica i Matemàtica Computacional. Aportem formació en sistemes d’informació i anàlisi de dades per estudiar els processos de Ceràmica Riu Sec i els requisits d’una solució ERP.
       </PageIntro>
       <section className="section-space">
         <div className="wrap split-section">
@@ -305,16 +316,16 @@ function Consultancy() {
       <section className="section-space">
         <div className="wrap">
           <div className="section-heading-row">
-            <h2>L’equip</h2>
-            <p>Els perfils professionals i els CV s’afegiran quan cada membre confirme la seua informació.</p>
+            <h2>Qui som</h2>
+            <p>Formem l’equip de Nexe i desenvolupem el cas de consultoria sobre l’aprovisionament de Ceràmica Riu Sec.</p>
           </div>
           <ul className="team-list">
             {team.map((person) => (
               <li key={person.name}>
                 <h3>{person.name}</h3>
                 <dl>
-                  <div><dt>Estudis</dt><dd>{person.studies || 'Pendent de completar'}</dd></div>
-                  <div><dt>Especialitat</dt><dd>{person.specialty || 'Pendent de completar'}</dd></div>
+                  <div><dt>Formació</dt><dd>{person.studies}</dd></div>
+                  <div><dt>Projecte</dt><dd>Anàlisi del procés d’aprovisionament i estudi d’una solució ERP per a Ceràmica Riu Sec.</dd></div>
                 </dl>
                 {person.cvUrl && <a className="text-link" href={person.cvUrl} target="_blank" rel="noreferrer">Veure el CV <span aria-hidden="true">↗</span></a>}
               </li>

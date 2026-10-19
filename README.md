@@ -26,7 +26,7 @@ npm run preview
 - `src/styles.css`: colors i estils generals de Tailwind.
 - `public/images/`: logotip de Nexe i imatge il·lustrativa.
 
-L'apartat **Qui som** ja té una fitxa per a cada membre. Quan tingueu la informació confirmada, empleneu `studies`, `specialty` i `cvUrl` en `src/content.js`. L'enllaç al CV només apareixerà quan `cvUrl` tinga una adreça.
+L'apartat **Qui som** mostra la formació confirmada de cada membre i el projecte compartit. Per afegir els CV complets, guardeu un PDF per persona dins de `public/cv/` i poseu la ruta corresponent en `cvUrl` de `src/content.js`; per exemple, `cvUrl: 'cv/hector-balaguer.pdf'`. L'enllaç només apareix quan el fitxer té una ruta. Reviseu que el PDF no publique dades personals que no vulgueu compartir.
 
 ## Publicació en GitHub Pages
 
@@ -39,4 +39,4 @@ git commit -m "Actualitza la web"
 git push origin main
 ```
 
-`npm run export` compila l'aplicació i copia `index.html`, `assets/` i `images/` a la carpeta principal. Editeu sempre els fitxers de `src/` i `public/`; els de la carpeta principal es tornen a generar amb l'exportació. L'adreça pública és [carlesmarti2003.github.io/Consultoria-ERP-1046](https://carlesmarti2003.github.io/Consultoria-ERP-1046/).
+`npm run export` compila l'aplicació i copia `index.html`, `assets/`, `images/` i, si existeix, `cv/` a la carpeta principal. Editeu sempre els fitxers de `src/` i `public/`; els de la carpeta principal es tornen a generar amb l'exportació. L'adreça pública és [carlesmarti2003.github.io/Consultoria-ERP-1046](https://carlesmarti2003.github.io/Consultoria-ERP-1046/).
