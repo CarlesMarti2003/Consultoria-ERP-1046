@@ -26,7 +26,7 @@ npm run preview
 - `src/styles.css`: colors i estils generals de Tailwind.
 - `public/images/`: logotip de Nexe i imatge il·lustrativa.
 
-L'apartat **Qui som** mostra la formació confirmada de cada membre i el projecte compartit. Per afegir els CV complets, guardeu un PDF per persona dins de `public/cv/` i poseu la ruta corresponent en `cvUrl` de `src/content.js`; per exemple, `cvUrl: 'cv/hector-balaguer.pdf'`. L'enllaç només apareix quan el fitxer té una ruta. Reviseu que el PDF no publique dades personals que no vulgueu compartir.
+L'apartat **Qui som** mostra la formació confirmada de cada membre i el projecte compartit. Cada perfil indica on anirà el seu CV. Per afegir els CV complets, guardeu un PDF per persona dins de `public/cv/` i poseu la ruta corresponent en `cvUrl` de `src/content.js`; per exemple, `cvUrl: 'cv/hector-balaguer.pdf'`. En publicar la web, el text «CV pendent d’incorporar» es convertirà en l'enllaç «Veure el CV». Reviseu que els PDF no publiquen dades personals que no vulgueu compartir.
 
 ## Publicació en GitHub Pages
 

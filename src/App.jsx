@@ -258,7 +258,7 @@ function Process() {
   return (
     <>
       <PageIntro label="Procés" title="Aprovisionament de matèries primeres">
-        El procés comença quan producció identifica una necessitat i acaba quan el material acceptat queda registrat al magatzem.
+        L’objectiu del procés és garantir que producció dispose de les matèries primeres necessàries, en la quantitat adequada i a temps, amb l’estoc actualitzat. Comença quan producció identifica una necessitat i acaba quan el material acceptat queda registrat al magatzem.
       </PageIntro>
       <section className="scope-section">
         <div className="wrap scope-grid">
@@ -338,7 +338,9 @@ function Consultancy() {
                   <div><dt>Formació</dt><dd>{person.studies}</dd></div>
                   <div><dt>Projecte</dt><dd>Anàlisi del procés d’aprovisionament i estudi d’una solució ERP per a Ceràmica Riu Sec.</dd></div>
                 </dl>
-                {person.cvUrl && <a className="text-link" href={person.cvUrl} target="_blank" rel="noreferrer">Veure el CV <span aria-hidden="true">↗</span></a>}
+                {person.cvUrl
+                  ? <a className="text-link" href={import.meta.env.BASE_URL + person.cvUrl} target="_blank" rel="noreferrer">Veure el CV <span aria-hidden="true">↗</span></a>
+                  : <p className="cv-status">CV pendent d’incorporar</p>}
               </li>
             ))}
           </ul>
