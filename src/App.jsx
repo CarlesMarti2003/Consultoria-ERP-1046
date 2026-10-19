@@ -8,7 +8,6 @@ const navigation = [
   { label: 'Empresa', href: '#/empresa', page: 'empresa' },
   { label: 'Procés', href: '#/proces', page: 'proces' },
   { label: 'Consultora', href: '#/consultora', page: 'consultora' },
-  { label: 'Fonts', href: '#/fonts', page: 'fonts' },
 ]
 
 const footerNavigation = [
@@ -22,7 +21,6 @@ const titles = {
   empresa: 'Empresa',
   proces: 'Procés',
   consultora: 'Consultora',
-  fonts: 'Fonts',
   contacte: 'Contacte',
   privacitat: 'Privacitat',
   cookies: 'Cookies',
@@ -52,13 +50,6 @@ const services = [
   'Definir les necessitats que ha de cobrir el sistema.',
   'Comparar solucions ERP i proposar millores del procés.',
   'Planificar una implantació ajustada al treball de la fàbrica.',
-]
-
-const sources = [
-  { publisher: 'ASCER', title: 'El sector ceràmic', url: 'https://portal.ascer.es/el-sector/' },
-  { publisher: 'Microsoft Learn', title: 'Planificació de l’aprovisionament', url: 'https://learn.microsoft.com/en-us/dynamics365/business-central/production-planning' },
-  { publisher: 'BOE', title: 'Llei 31/1995 · Prevenció de riscos laborals', url: 'https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292' },
-  { publisher: 'BOE', title: 'Reial decret 374/2001 · Agents químics en el treball', url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2001-8436' },
 ]
 
 function pageFromHash() {
@@ -358,32 +349,6 @@ function Consultancy() {
   )
 }
 
-function Sources() {
-  return (
-    <>
-      <PageIntro label="Fonts" title="Documentació consultada">
-        Referències sobre el sector ceràmic, la planificació de l’aprovisionament i la prevenció de riscos.
-      </PageIntro>
-      <section className="section-space">
-        <div className="wrap sources-layout">
-          <h2>Referències</h2>
-          <div>
-            <ul className="sources-list">
-              {sources.map((source) => (
-                <li key={source.url}>
-                  <span>{source.publisher}</span>
-                  <a href={source.url} target="_blank" rel="noreferrer">{source.title} <span aria-hidden="true">↗</span></a>
-                </li>
-              ))}
-            </ul>
-            <p className="sources-note">Les normes de seguretat s’apliquen a la recepció i manipulació del material quan corresponga.</p>
-          </div>
-        </div>
-      </section>
-    </>
-  )
-}
-
 function Contact() {
   return (
     <>
@@ -487,7 +452,6 @@ export default function App() {
         {page === 'empresa' && <Company />}
         {page === 'proces' && <Process />}
         {page === 'consultora' && <Consultancy />}
-        {page === 'fonts' && <Sources />}
         {page === 'contacte' && <Contact />}
         {page === 'privacitat' && <Privacy />}
         {page === 'cookies' && <Cookies />}
