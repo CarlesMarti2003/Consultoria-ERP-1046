@@ -1,6 +1,6 @@
 # Nexe Consultoria ERP · Ceràmica Riu Sec
 
-Web de Nexe Consultoria ERP sobre Ceràmica Riu Sec i el procés d'aprovisionament de matèries primeres. És un cas pràctic simulat i està organitzada en cinc apartats: inici, empresa, procés, consultora i contacte.
+Web de Nexe Consultoria ERP sobre Ceràmica Riu Sec i el procés d'aprovisionament de matèries primeres. Està organitzada en cinc apartats: inici, empresa, procés, consultora i contacte.
 
 ## Obrir el projecte
 
@@ -26,9 +26,9 @@ npm run preview
 - `src/styles.css`: colors i estils generals de Tailwind.
 - `public/images/`: logotip de Nexe i imatge il·lustrativa.
 
-L'apartat **Qui som** mostra la formació confirmada de cada membre i un repartiment proposat de responsabilitats per al cas. Confirmeu aquestes funcions amb l'equip abans del lliurament. Els CV encara no s'han facilitat; no s'han inventat experiències ni competències personals.
+L'apartat **Qui som** mostra la formació de cada membre i enllaça els quatre CV disponibles a `public/cv/`. No s'assignen funcions individuals sense confirmar-les amb l'equip.
 
-Per incorporar-los, la via més senzilla és guardar **un PDF per membre** dins de `public/cv/` i indicar-ne la ruta a `cvUrl` de `src/content.js`, per exemple `cvUrl: 'cv/hector-balaguer.pdf'`. També es pot posar un **enllaç públic complet** a un PDF allotjat fora de la web, per exemple `cvUrl: 'https://exemple.org/cv/hector-balaguer.pdf'`. Cal comprovar que el PDF s'obri sense iniciar sessió. En publicar la web, «CV pendent d’incorporar» es convertirà en «Veure el CV». Reviseu abans de publicar-los que no hi haja dades personals que no vulgueu fer públiques (adreça, telèfon, document d'identitat, etc.).
+Cada PDF es guarda dins de `public/cv/` i la seua ruta figura en `cvUrl` de `src/content.js`. També s'accepta un enllaç públic complet a un PDF allotjat fora de la web. Reviseu que els CV no incloguen dades personals que no vulgueu fer públiques (adreça, telèfon, document d'identitat, etc.).
 
 ## Publicació en GitHub Pages
 
